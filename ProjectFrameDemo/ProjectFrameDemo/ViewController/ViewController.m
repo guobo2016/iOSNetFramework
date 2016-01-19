@@ -27,11 +27,7 @@
     NSLog(@"%@",decodeString);
     
     [self setNavTitle:@"测试"];
-    NSDictionary* dict1 = @{@"key1":@"key",@"key2":@{@"key21":@"222"}};
-    NSDictionary* dict2 = @{@"key1":@"key",@"key2":@{@"key21":@"222"}};
-    NSLog(@"%zd",dict1 == dict2);
-    NSLog(@"%zd",[dict1 isEqualToDictionary: dict2]);
-
+    
     [[[IB_DemoRequest alloc]init]sendRequestSuccessBlock:^(IB_BaseResponseModel *baseModel) {
         IB_BaseDataModel* dataModel = baseModel.data;
         NSLog(@"成功ResponseModel####%@",baseModel);
@@ -43,34 +39,42 @@
         
     }];
     
-    [IB_DemoRequest cancel];
-    /**
-     *  测试发起网路请求
-     */
-//    [IB_ApiOperation post:Example_URL params:@{@"pageNumber":@"1",@"pageSize":@"200",@"userId":@"3121051"} cache:YES successBlock:^(IBBaseModel *resultModel) {
-    //        NSMutableArray* resultArray = [NSMutableArray array];
-    //        for (NSDictionary* dict in resultModel.data) {
-    //            IBExampleModel* model = [IBExampleModel objectFromDictionary:dict];
-    //            [resultArray addObject:model];
-    //        }
-    //        NSLog(@"成功####%@",resultArray);
-//    } requestFailBlock:^(IB_Error *error) {
-//        NSLog(@"失败####%@",error);
-//    } finalBlock:^(IBBaseModel *resultModel, IB_Error *error) {
-//        NSLog(@"这是缓存数据吗？%@",resultModel.isCache?@"是":@"不是");
-//    }];
-    /**
-     *  测试关闭网络请求
-     */
-//    [IBApiOperation cancel:Example_URL];
-//    [IBApiOperation get:Example_URL params:nil cache:NO successBlock:^(IBBaseModel *resultModel) {
-//        
-//    } requestFailBlock:^(IBError *error) {
-//        
-//    } finalBlock:^(IBBaseModel *resultModel, IBError *error) {
-//        
-//    }];
+//    [IB_DemoRequest cancel];
 }
-
+/********************************
+ <IB_BaseResponseModel: id = (null) {
+ code = 200;
+ data =     (
+ {
+ name = "2015年福建省中小学教师信息技术应用能力提升工程网络研修演示平台";
+ userCount = 31;
+ },
+ {
+ name = "和威哥一起学手绘";
+ userCount = 1349;
+ },
+ {
+ name = "时间管理";
+ userCount = 14870;
+ },
+ {
+ name = "懒人PPT宝典";
+ userCount = 2504;
+ },
+ {
+ name = "职场语言艺术";
+ userCount = 6747;
+ },
+ {
+ name = "宋词";
+ userCount = 6587;
+ }
+ );
+ isCache = 0;
+ message = "";
+ pageIndex = 0;
+ totalCount = 6;
+ }>
+ */
 
 @end

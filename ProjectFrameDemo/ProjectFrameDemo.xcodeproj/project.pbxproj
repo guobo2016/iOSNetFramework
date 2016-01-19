@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		DC0731431C4E4D9A00F46FE2 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0731401C4E4D9A00F46FE2 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DC0731441C4E4D9A00F46FE2 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = DC0731421C4E4D9A00F46FE2 /* README.md */; };
-		DC0731461C4E5D3900F46FE2 /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0731451C4E5D3900F46FE2 /* Const.m */; };
 		DC4854071C1EA46800CAD738 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4854051C1EA46800CAD738 /* ViewController.m */; };
 		DC4854081C1EA46800CAD738 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC4854061C1EA46800CAD738 /* ViewController.xib */; };
 		DC48540C1C1EA4B300CAD738 /* IB_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC48540B1C1EA4B300CAD738 /* IB_BaseViewController.m */; };
@@ -108,7 +107,6 @@
 		DC0731401C4E4D9A00F46FE2 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		DC0731411C4E4D9A00F46FE2 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		DC0731421C4E4D9A00F46FE2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		DC0731451C4E5D3900F46FE2 /* Const.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Const.m; sourceTree = "<group>"; };
 		DC4854041C1EA46800CAD738 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		DC4854051C1EA46800CAD738 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		DC4854061C1EA46800CAD738 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
@@ -326,7 +324,6 @@
 			isa = PBXGroup;
 			children = (
 				DC4854DB1C1EBD7400CAD738 /* Const.h */,
-				DC0731451C4E5D3900F46FE2 /* Const.m */,
 				DC4854D61C1EA89700CAD738 /* CommonMacro.h */,
 				DC4854DA1C1EAA5B00CAD738 /* PrefixMarcro.h */,
 			);
@@ -750,7 +747,6 @@
 				DC4854C81C1EA81100CAD738 /* SDWebImageCompat.m in Sources */,
 				DCE06AAA1C22B68F00E0361E /* NSDate+Additional.m in Sources */,
 				DC56246F1C1FF78900A5AEBC /* IB_BaseResponseModel.m in Sources */,
-				DC0731461C4E5D3900F46FE2 /* Const.m in Sources */,
 				DC4854BA1C1EA81100CAD738 /* AFURLConnectionOperation.m in Sources */,
 				DC5624761C1FF79900A5AEBC /* Jastor.m in Sources */,
 				DC4854B91C1EA81100CAD738 /* AFSecurityPolicy.m in Sources */,

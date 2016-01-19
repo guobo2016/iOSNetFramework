@@ -11,9 +11,3 @@
 #define Server_URL              @"http://tongxue.open.com.cn:17000/"
 
 #define Example_URL @"classmate/course/findWhiteByUserId.json"
-
-typedef NS_ENUM(NSInteger,RquestURL);
-
-@interface Const : NSObject
-
-@end
