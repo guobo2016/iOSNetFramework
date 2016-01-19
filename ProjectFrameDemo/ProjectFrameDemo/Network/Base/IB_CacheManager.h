@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
+/**
+ *  网络请求缓存处理类
+ */
 @interface IB_CacheManager : NSObject
 
 /**

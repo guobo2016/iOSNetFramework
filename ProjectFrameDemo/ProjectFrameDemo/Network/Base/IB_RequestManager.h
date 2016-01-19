@@ -15,9 +15,6 @@
  *  请求管理类
  */
 @interface IB_RequestManager : NSObject
-
-+ (instancetype)sharedManager;
-
 /**
  *  发送请求
  *
@@ -27,6 +24,6 @@
  *  @param successBlock 成功Block
  *  @param failBlock    失败Block
  */
-- (void)sendRequest:(NSString*)requestUrl method:(kHttpMethod)method params:(NSDictionary*)paramsDict successBlock:(void (^)(NSURLSessionDataTask *task, id responseObject))successBlock failBlock:(void (^)(NSURLSessionDataTask *task, NSError *error))failBlock;
++ (void)sendRequest:(NSString*)requestUrl method:(kHttpMethod)method params:(NSDictionary*)paramsDict successBlock:(void (^)(NSURLSessionDataTask *task, id responseObject))successBlock failBlock:(void (^)(NSURLSessionDataTask *task, NSError *error))failBlock;
 
 @end

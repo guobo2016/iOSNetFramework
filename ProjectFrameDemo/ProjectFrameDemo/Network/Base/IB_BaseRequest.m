@@ -133,7 +133,7 @@
  */
 - (void)sendRequest
 {
-    [[IB_RequestManager sharedManager]sendRequest:self.requestUrl method:self.requestMethod params:self.parametersDic successBlock:^(NSURLSessionDataTask *task, id responseObject) {
+    [IB_RequestManager sendRequest:self.requestUrl method:self.requestMethod params:self.parametersDic successBlock:^(NSURLSessionDataTask *task, id responseObject) {
         [self handleResponse:responseObject isReadCache:NO];
         dispatch_barrier_sync(dispatch_get_global_queue(0, 0), ^{
             [IB_CacheManager writeCacheDisk:responseObject url:self.requestUrl params:_parametersDic];
