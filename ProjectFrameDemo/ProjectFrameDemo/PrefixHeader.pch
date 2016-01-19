@@ -1,0 +1,15 @@
+//
+//  PrefixHeader.pch
+//  ProjectFrameDemo
+//
+//  Created by 郭波 on 15/12/14.
+//  Copyright © 2015年 XX_Company. All rights reserved.
+//
+
+#ifdef __OBJC__
+
+#import "PrefixMarcro.h"
+
+
+
+#endif
