@@ -8,11 +8,11 @@
 //  Created by 郭波 on 16/1/19.
 //  Copyright © 2016年 XX_Company. All rights reserved.
 //
-#import "IB_FileManager.h"
+#import "IB_CacheManager.h"
 #import "NSString+IB_Encrypt.h"
 #import "IB_Error.h"
 
-@implementation IB_FileManager
+@implementation IB_CacheManager
 
 + (NSDictionary*)readCacheDiskByUrl:(NSString*)url params:(NSDictionary*)parametersDic
 {

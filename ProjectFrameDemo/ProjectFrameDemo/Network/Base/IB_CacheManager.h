@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface IB_FileManager : NSObject
+@interface IB_CacheManager : NSObject
 
 /**
  *  读取网络缓存
