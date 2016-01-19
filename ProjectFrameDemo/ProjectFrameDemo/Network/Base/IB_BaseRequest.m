@@ -14,7 +14,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "IB_Error.h"
 #import "NSString+IB_Encrypt.h"
-#import "IB_FileManager.h"
+#import "IB_CacheManager.h"
 #import "IB_RequestManager.h"
 #import <objc/objc.h>
 #import <objc/runtime.h>
@@ -71,7 +71,7 @@
     }
     if (self.requestCacheType == kHttpCacheTypeLoadLocalCache) {
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            NSDictionary* cacheDict = [IB_FileManager readCacheDiskByUrl:self.requestUrl params:_parametersDic];
+            NSDictionary* cacheDict = [IB_CacheManager readCacheDiskByUrl:self.requestUrl params:_parametersDic];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self handleResponse:cacheDict isReadCache:YES];
             });
@@ -136,7 +136,7 @@
     [[IB_RequestManager sharedManager]sendRequest:self.requestUrl method:self.requestMethod params:self.parametersDic successBlock:^(NSURLSessionDataTask *task, id responseObject) {
         [self handleResponse:responseObject isReadCache:NO];
         dispatch_barrier_sync(dispatch_get_global_queue(0, 0), ^{
-            [IB_FileManager writeCacheDisk:responseObject url:self.requestUrl params:_parametersDic];
+            [IB_CacheManager writeCacheDisk:responseObject url:self.requestUrl params:_parametersDic];
         });
     } failBlock:^(NSURLSessionDataTask *task, NSError *error) {
         IB_Error* bError = [[IB_Error alloc]initWithDomain:error.domain code:error.code userInfo:error.userInfo];

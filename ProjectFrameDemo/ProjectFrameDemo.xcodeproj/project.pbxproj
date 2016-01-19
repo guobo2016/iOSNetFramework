@@ -75,7 +75,7 @@
 		DC5387C51C4DDAB3004E1CDB /* IB_AppDotNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5387BC1C4DDAB3004E1CDB /* IB_AppDotNetAPIClient.m */; };
 		DC5387C61C4DDAB3004E1CDB /* IB_BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5387BE1C4DDAB3004E1CDB /* IB_BaseRequest.m */; };
 		DC5387C71C4DDAB3004E1CDB /* IB_Error.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5387C01C4DDAB3004E1CDB /* IB_Error.m */; };
-		DC5387C81C4DDAB3004E1CDB /* IB_FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5387C21C4DDAB3004E1CDB /* IB_FileManager.m */; };
+		DC5387C81C4DDAB3004E1CDB /* IB_CacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5387C21C4DDAB3004E1CDB /* IB_CacheManager.m */; };
 		DC5387C91C4DDAB3004E1CDB /* NSString+IB_Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5387C41C4DDAB3004E1CDB /* NSString+IB_Encrypt.m */; };
 		DC5387CC1C4DDADB004E1CDB /* IB_DemoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5387CB1C4DDADB004E1CDB /* IB_DemoRequest.m */; };
 		DC5387D31C4DFE82004E1CDB /* IB_BaseDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5387D21C4DFE82004E1CDB /* IB_BaseDataModel.m */; };
@@ -221,8 +221,8 @@
 		DC5387BE1C4DDAB3004E1CDB /* IB_BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IB_BaseRequest.m; sourceTree = "<group>"; };
 		DC5387BF1C4DDAB3004E1CDB /* IB_Error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IB_Error.h; sourceTree = "<group>"; };
 		DC5387C01C4DDAB3004E1CDB /* IB_Error.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IB_Error.m; sourceTree = "<group>"; };
-		DC5387C11C4DDAB3004E1CDB /* IB_FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IB_FileManager.h; sourceTree = "<group>"; };
-		DC5387C21C4DDAB3004E1CDB /* IB_FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IB_FileManager.m; sourceTree = "<group>"; };
+		DC5387C11C4DDAB3004E1CDB /* IB_CacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IB_CacheManager.h; sourceTree = "<group>"; };
+		DC5387C21C4DDAB3004E1CDB /* IB_CacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IB_CacheManager.m; sourceTree = "<group>"; };
 		DC5387C31C4DDAB3004E1CDB /* NSString+IB_Encrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IB_Encrypt.h"; sourceTree = "<group>"; };
 		DC5387C41C4DDAB3004E1CDB /* NSString+IB_Encrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IB_Encrypt.m"; sourceTree = "<group>"; };
 		DC5387CA1C4DDADB004E1CDB /* IB_DemoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IB_DemoRequest.h; sourceTree = "<group>"; };
@@ -589,8 +589,8 @@
 				DC5387BE1C4DDAB3004E1CDB /* IB_BaseRequest.m */,
 				DC5387D41C4E08F8004E1CDB /* IB_RequestManager.h */,
 				DC5387D51C4E08F8004E1CDB /* IB_RequestManager.m */,
-				DC5387C11C4DDAB3004E1CDB /* IB_FileManager.h */,
-				DC5387C21C4DDAB3004E1CDB /* IB_FileManager.m */,
+				DC5387C11C4DDAB3004E1CDB /* IB_CacheManager.h */,
+				DC5387C21C4DDAB3004E1CDB /* IB_CacheManager.m */,
 				DC5387C31C4DDAB3004E1CDB /* NSString+IB_Encrypt.h */,
 				DC5387C41C4DDAB3004E1CDB /* NSString+IB_Encrypt.m */,
 				DC5387BF1C4DDAB3004E1CDB /* IB_Error.h */,
@@ -788,7 +788,7 @@
 				DC5387C91C4DDAB3004E1CDB /* NSString+IB_Encrypt.m in Sources */,
 				DC4854D41C1EA81100CAD738 /* UIImageView+WebCache.m in Sources */,
 				DC4854CA1C1EA81100CAD738 /* SDWebImageDownloader.m in Sources */,
-				DC5387C81C4DDAB3004E1CDB /* IB_FileManager.m in Sources */,
+				DC5387C81C4DDAB3004E1CDB /* IB_CacheManager.m in Sources */,
 				DCE06AB31C22B68F00E0361E /* UIView+Additions.m in Sources */,
 				DC4854CE1C1EA81100CAD738 /* SDWebImagePrefetcher.m in Sources */,
 				DC4854C71C1EA81100CAD738 /* SDImageCache.m in Sources */,

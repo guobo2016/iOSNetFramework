@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "IB_BaseRequest.h"
 #import "IB_AppDotNetAPIClient.h"
-#import "IB_FileManager.h"
+#import "IB_CacheManager.h"
 
 /**
  *  请求管理类
