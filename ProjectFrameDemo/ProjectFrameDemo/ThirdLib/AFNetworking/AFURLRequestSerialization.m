@@ -521,7 +521,7 @@ forHTTPHeaderField:(NSString *)field
 //            if ([Global isLogin]) {
 //                [mutableRequest setValue:[Global sharedGlobal].currentUser.token forHTTPHeaderField:@"token"];
 //            }
-            [mutableRequest setValue:@"5111439d5c9e41b4acbde96d826ecf9f" forHTTPHeaderField:@"token"];
+            [mutableRequest setValue:@"93fb36628324483daf6a787481bd9de7" forHTTPHeaderField:@"token"];
             [mutableRequest setValue:@"iPhone" forHTTPHeaderField:@"device"];
 
             NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];

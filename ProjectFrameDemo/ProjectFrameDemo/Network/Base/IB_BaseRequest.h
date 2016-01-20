@@ -39,34 +39,69 @@ typedef NS_ENUM(NSInteger,kHttpCacheType) {
 };
 @interface IB_BaseRequest : NSObject
 /**
- *  设置网络请求url
+ *  初始化网络请求
  *
- *  @param url
+ *  @param url       请求url
+ *  @return          实例
  */
-- (void)setRequestUrl:(NSString*)requestUrl;
+- (instancetype)initRequestUrl:(NSString*)url;
 /**
- *  设置http方式
+ *  初始化网络请求
  *
- *  @param method
+ *  @param url       请求url
+ *  @param method    请求方式
+ *  @return          实例
  */
-- (void)setRequestMethod:(kHttpMethod)requestMethod;
+- (instancetype)initRequestUrl:(NSString*)url method:(kHttpMethod)method;
+
 /**
- *  设置缓存方式
+ *  初始化网络请求
  *
- *  @param type
+ *  @param url       请求url
+ *  @param method    请求方式
+ *  @param cacheType 缓存方式
+ *  @return          实例
  */
-- (void)setRequestCacheType:(kHttpCacheType)cacheType;
+- (instancetype)initRequestUrl:(NSString*)url method:(kHttpMethod)method cacheType:(kHttpCacheType)cacheType;
 /**
- *  设置是否需要加密
+ *  初始化网络请求
  *
- *  @param encrypt 
+ *  @param url       请求url
+ *  @param method    请求方式
+ *  @param cacheType 缓存方式
+ *  @param encrypt   是否加密
+ *  @return          实例
  */
-- (void)setEncrypt:(BOOL)encrypt;
-/**
- *  设置pageNumber
- *
- *  @param pageNumber pageNumber description
- */
+- (instancetype)initRequestUrl:(NSString*)url method:(kHttpMethod)method cacheType:(kHttpCacheType)cacheType encrypt:(BOOL)encrypt;
+///**
+// *  设置网络请求url
+// *
+// *  @param url
+// */
+//- (void)setRequestUrl:(NSString*)requestUrl;
+///**
+// *  设置http方式
+// *
+// *  @param method
+// */
+//- (void)setRequestMethod:(kHttpMethod)requestMethod;
+///**
+// *  设置缓存方式
+// *
+// *  @param type
+// */
+//- (void)setRequestCacheType:(kHttpCacheType)cacheType;
+///**
+// *  设置是否需要加密
+// *
+// *  @param encrypt 
+// */
+//- (void)setEncrypt:(BOOL)encrypt;
+///**
+// *  设置pageNumber
+// *
+// *  @param pageNumber pageNumber description
+// */
 - (void)setPageNumber:(NSInteger)pageNumber;
 /**
  *  设置pageSize
@@ -123,7 +158,7 @@ typedef NS_ENUM(NSInteger,kHttpCacheType) {
  *  @param requestFailBlock    失败Block
  *  @param finalBlock          成功或者失败都执行的Block
  */
-- (void)sendRequestSuccessBlock:(void(^)(IB_BaseResponseModel* baseModel))requestSuccessBlock requestFailBlock:(void(^)(IB_Error* error))requestFailBlock finalBlock:(void(^)(IB_BaseResponseModel* baseModel,IB_Error* error))finalBlock;
+- (void)sendRequestSuccessBlock:(void(^)(IB_BaseResponseModel* baseModel))requestSuccessBlock requestFailBlock:(void(^)(IB_Error* error))requestFailBlock finalBlock:(void(^)())finalBlock;
 /**
  *  关闭网络请求
  *

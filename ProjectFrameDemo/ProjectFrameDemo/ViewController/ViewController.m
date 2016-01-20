@@ -35,7 +35,7 @@
 
     } requestFailBlock:^(IB_Error *error) {
         DLog(@"%@",error);
-    } finalBlock:^(IB_BaseResponseModel *baseModel, IB_Error *error) {
+    } finalBlock:^() {
         
     }];
     

@@ -8,6 +8,6 @@
 /**
  *  Server地址
  */
-#define Server_URL              @"http://tongxue.open.com.cn:17000/"
+#define Server_URL              @"http://10.191.38.180:8080/"
 
 #define Example_URL @"classmate/course/findWhiteByUserId.json"

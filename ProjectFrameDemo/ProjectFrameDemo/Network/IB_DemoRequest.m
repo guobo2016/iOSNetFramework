@@ -16,11 +16,8 @@
 
 - (instancetype)init
 {
-    self = [super init];
+    self = [super initRequestUrl:Example_URL method:kHttpMethodPost cacheType:kHttpCacheTypeLoadLocalCache encrypt:NO];
     if (self) {
-        [self setRequestUrl:Example_URL];
-        [self setRequestMethod:kHttpMethodPost];
-        [self setRequestCacheType:kHttpCacheTypeLoadLocalCache];
         [self setValue:@"4218582" forKey:@"userId"];
         [self setPageNumber:1];
         [self setPageSize:200];

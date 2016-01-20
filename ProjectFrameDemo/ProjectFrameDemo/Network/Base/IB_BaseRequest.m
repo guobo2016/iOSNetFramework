@@ -26,7 +26,7 @@
 {
     void(^_requestSuccFinishBlock)(id result);
     void(^_requestFailFinishBlock)(IB_Error* error);
-    void(^_finalBlock)(id result,IB_Error* error);
+    void(^_finalBlock)();
     NSDictionary*   _responseDict;
     NSDictionary*   _cacheResponseDict;
 }
@@ -50,15 +50,41 @@
 
 - (instancetype)init
 {
+    @throw [NSException exceptionWithName:@"网络请求初始化失败" reason:@"不允许调用IB_BaseRequest的init方式进行初始化，请使用带参数的初始化方法" userInfo:nil];
+    return nil;
+}
+
+- (instancetype)initRequestUrl:(NSString*)url
+{
+    return [self initRequestUrl:url method:kHttpMethodPost];
+}
+
+- (instancetype)initRequestUrl:(NSString*)url method:(kHttpMethod)method
+{
+    return [self initRequestUrl:url method:method cacheType:kHttpCacheTypeIgnoreCache];
+}
+
+- (instancetype)initRequestUrl:(NSString*)url method:(kHttpMethod)method cacheType:(kHttpCacheType)cacheType
+{
+    return [self initRequestUrl:url method:method cacheType:cacheType encrypt:NO];
+}
+
+- (instancetype)initRequestUrl:(NSString*)url method:(kHttpMethod)method cacheType:(kHttpCacheType)cacheType encrypt:(BOOL)encrypt
+{
     self = [super init];
     if (self) {
         _parametersDic = [NSMutableDictionary dictionary];
+        _requestUrl = url;
+        _requestMethod = method;
+        _requestCacheType = cacheType;
+        _encrypt = encrypt;
     }
     return self;
 }
+
 #pragma mark public method
 
-- (void)sendRequestSuccessBlock:(void(^)(IB_BaseResponseModel* baseModel))requestSuccessBlock requestFailBlock:(void(^)(IB_Error* error))requestFailBlock finalBlock:(void(^)(IB_BaseResponseModel* baseModel,IB_Error* error))finalBlock
+- (void)sendRequestSuccessBlock:(void(^)(IB_BaseResponseModel* baseModel))requestSuccessBlock requestFailBlock:(void(^)(IB_Error* error))requestFailBlock finalBlock:(void(^)())finalBlock
 {
     [self popNullExceptionIfNeed];
     _requestSuccFinishBlock = requestSuccessBlock;
@@ -144,7 +170,7 @@
             _requestFailFinishBlock(bError);
         }
         if (_finalBlock) {
-            _finalBlock(nil,bError);
+            _finalBlock();
         }
         _requestFailFinishBlock = nil;
         _requestSuccFinishBlock = nil;
@@ -186,7 +212,7 @@
             _requestFailFinishBlock(bError);
         }
         if (_finalBlock) {
-            _finalBlock(baseModel,bError);
+            _finalBlock();
         }
         if (!isReadCache) {
             _requestSuccFinishBlock = nil;
@@ -199,7 +225,7 @@
             _requestFailFinishBlock(error);
         }
         if (_finalBlock) {
-            _finalBlock(responseObject,error);
+            _finalBlock();
         }
         if (!isReadCache) {
             _requestSuccFinishBlock = nil;
