@@ -166,14 +166,13 @@
             _responseDict = responseObject;
         }
         if (self.requestCacheType == kHttpCacheTypeLoadLocalCache) {
-            if (_responseDict && _cacheResponseDict && !isReadCache && [_cacheResponseDict isEqualToDictionary:_responseDict]) {//如果网络请求返回的数据与缓存数据完成一直，则不需要再次刷新界面
+            if (!isReadCache && [self checkEqualDict:_cacheResponseDict withDestDict:_responseDict]) {
                 _requestSuccFinishBlock = nil;
                 _requestFailFinishBlock = nil;
                 _finalBlock = nil;
                 return;
             }
         }
-        
         IB_BaseResponseModel* baseModel = [IB_BaseResponseModel objectFromDictionary:responseObject];
         if (baseModel.code == kErrorCode_Success) {
             [self processResult:baseModel];
@@ -220,4 +219,19 @@
     }
 }
 
+/**
+ *  判断两个字典是否相等
+ *
+ *  @param sourceDict 源字典
+ *  @param destDict   目标字典
+ *
+ *  @return 是否相等
+ */
+- (BOOL)checkEqualDict:(NSDictionary*)sourceDict withDestDict:(NSDictionary*)destDict
+{
+    if (_responseDict && _cacheResponseDict  && [_cacheResponseDict isEqualToDictionary:_responseDict]) {//如果网络请求返回的数据与缓存数据完成一致，则不需要再次刷新界面
+        return YES;
+    }
+    return NO;
+}
 @end

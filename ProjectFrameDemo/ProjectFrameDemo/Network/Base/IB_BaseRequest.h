@@ -29,7 +29,7 @@ typedef NS_ENUM(NSInteger,kHttpCacheType) {
      */
     kHttpCacheTypeIgnoreCache = 0,
     /**
-     *  先读取本地缓存
+     *  先读取本地缓存,再取网络数据
      */
     kHttpCacheTypeLoadLocalCache = 1,
     /**
