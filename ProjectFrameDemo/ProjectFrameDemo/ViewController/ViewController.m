@@ -12,6 +12,9 @@
 #import "NSString+IB_Encrypt.h"
 
 @interface ViewController ()
+{
+}
+
 
 @end
 
@@ -35,7 +38,7 @@
 
     } requestFailBlock:^(IB_Error *error) {
         DLog(@"%@",error);
-    } finalBlock:^() {
+    } finalBlock:^ {
         
     }];
     

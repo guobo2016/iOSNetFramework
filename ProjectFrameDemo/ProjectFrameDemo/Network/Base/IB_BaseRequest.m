@@ -98,9 +98,11 @@
     if (self.requestCacheType == kHttpCacheTypeLoadLocalCache) {
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             NSDictionary* cacheDict = [IB_CacheManager readCacheDiskByUrl:self.requestUrl params:_parametersDic];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self handleResponse:cacheDict isReadCache:YES];
-            });
+            if(cacheDict){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self handleResponse:cacheDict isReadCache:YES];
+                });
+            }
         });
     }
     objc_setAssociatedObject([self class], IB_BASEREQUEST_METHODNAME_KEY, self.requestUrl, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
