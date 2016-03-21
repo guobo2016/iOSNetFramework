@@ -43,6 +43,8 @@
     if(!resultDict[@"Code"] || [resultDict[@"Code"]intValue]!=kErrorCode_Success){
         NSLog(@"错误信息：信息异常，无法写入缓存");
         NSLog(@"测试数据——错误信息：信息异常，无法写入缓存");
+        NSLog(@"测试数据——错误信息：信息异常，无法写入缓存2");
+
         return;
     }
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
