@@ -84,7 +84,6 @@
 		DC5624761C1FF79900A5AEBC /* Jastor.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5624731C1FF79900A5AEBC /* Jastor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DC5624771C1FF79900A5AEBC /* JastorRuntimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5624751C1FF79900A5AEBC /* JastorRuntimeHelper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DC5624931C2009D900A5AEBC /* IB_ExampleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5624921C2009D900A5AEBC /* IB_ExampleModel.m */; };
-		DCCCF5C51CA0387F00BD16D2 /* IB_ZZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCCF5C41CA0387F00BD16D2 /* IB_ZZ.swift */; };
 		DCE06AA91C22B68F00E0361E /* NSArray+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE06A921C22B68F00E0361E /* NSArray+Additional.m */; };
 		DCE06AAA1C22B68F00E0361E /* NSDate+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE06A941C22B68F00E0361E /* NSDate+Additional.m */; };
 		DCE06AAB1C22B68F00E0361E /* NSDictionary+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE06A961C22B68F00E0361E /* NSDictionary+Additional.m */; };
@@ -242,7 +241,6 @@
 		DC5624911C2009D900A5AEBC /* IB_ExampleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IB_ExampleModel.h; sourceTree = "<group>"; };
 		DC5624921C2009D900A5AEBC /* IB_ExampleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IB_ExampleModel.m; sourceTree = "<group>"; };
 		DCCCF5C31CA0387F00BD16D2 /* ProjectFrameDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProjectFrameDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		DCCCF5C41CA0387F00BD16D2 /* IB_ZZ.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IB_ZZ.swift; sourceTree = "<group>"; };
 		DCE06A911C22B68F00E0361E /* NSArray+Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Additional.h"; sourceTree = "<group>"; };
 		DCE06A921C22B68F00E0361E /* NSArray+Additional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Additional.m"; sourceTree = "<group>"; };
 		DCE06A931C22B68F00E0361E /* NSDate+Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Additional.h"; sourceTree = "<group>"; };
@@ -595,7 +593,6 @@
 				DC5387C11C4DDAB3004E1CDB /* IB_CacheManager.h */,
 				DC5387C21C4DDAB3004E1CDB /* IB_CacheManager.m */,
 				DC5387C31C4DDAB3004E1CDB /* NSString+IB_Encrypt.h */,
-				DCCCF5C41CA0387F00BD16D2 /* IB_ZZ.swift */,
 				DC5387C41C4DDAB3004E1CDB /* NSString+IB_Encrypt.m */,
 				DC5387BF1C4DDAB3004E1CDB /* IB_Error.h */,
 				DC5387C01C4DDAB3004E1CDB /* IB_Error.m */,
@@ -763,7 +760,6 @@
 				DC4854D21C1EA81100CAD738 /* UIImage+WebP.m in Sources */,
 				DCE06AAD1C22B68F00E0361E /* NSObject+Addtion.m in Sources */,
 				DC4854BE1C1EA81100CAD738 /* FMDatabase.m in Sources */,
-				DCCCF5C51CA0387F00BD16D2 /* IB_ZZ.swift in Sources */,
 				DC4854C91C1EA81100CAD738 /* SDWebImageDecoder.m in Sources */,
 				DCE06AAF1C22B68F00E0361E /* NSString+UIAddtion.m in Sources */,
 				DCE06AB01C22B68F00E0361E /* NSTimer+Additions.m in Sources */,
