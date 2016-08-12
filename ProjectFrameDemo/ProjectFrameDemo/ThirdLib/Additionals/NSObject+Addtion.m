@@ -12,12 +12,12 @@
 #import "AppDelegate.h"
 @implementation NSObject (Addtion)
 
-- (IB_BaseViewController *)getCurrentVC:(UIView *)sourceView
+- (IBBaseViewController *)getCurrentVC:(UIView *)sourceView
 {
     id target=sourceView;
     while (target) {
         target = ((UIResponder *)target).nextResponder;
-        if ([target isKindOfClass:[IB_BaseViewController class]]) {
+        if ([target isKindOfClass:[IBBaseViewController class]]) {
             break;
         }
     }

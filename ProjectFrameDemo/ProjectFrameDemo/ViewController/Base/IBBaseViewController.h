@@ -12,7 +12,7 @@
 /**
  *  UIViewController基类
  */
-@interface IB_BaseViewController : UIViewController<UIGestureRecognizerDelegate>
+@interface IBBaseViewController : UIViewController<UIGestureRecognizerDelegate>
 /**
  *  显示loading框
  *

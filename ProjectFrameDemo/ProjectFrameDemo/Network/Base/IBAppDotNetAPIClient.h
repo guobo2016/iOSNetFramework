@@ -20,22 +20,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "IB_AppDotNetAPIClient.h"
+#import <Foundation/Foundation.h>
+#import "AFHTTPSessionManager.h"
 
-static NSString * const AFAppDotNetAPIBaseURLString = Server_URL;
+@interface IBAppDotNetAPIClient : AFHTTPSessionManager
 
-@implementation IB_AppDotNetAPIClient
-
-+ (instancetype)sharedClient {
-    static IB_AppDotNetAPIClient *_sharedClient = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _sharedClient = [[IB_AppDotNetAPIClient alloc] initWithBaseURL:[NSURL URLWithString:AFAppDotNetAPIBaseURLString]];
-        _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-        _sharedClient.urlDict = [NSMutableDictionary dictionary];
-    });
-    
-    return _sharedClient;
-}
+@property (strong,nonatomic) NSMutableDictionary* urlDict;
++ (instancetype)sharedClient;
 
 @end

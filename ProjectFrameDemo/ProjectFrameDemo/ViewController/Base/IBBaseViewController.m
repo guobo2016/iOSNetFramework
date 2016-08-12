@@ -5,17 +5,17 @@
 //  Created by Bob on 13-10-21.
 //  Copyright (c) 2013年 Bob. All rights reserved.
 //
-#import "IB_BaseViewController.h"
+#import "IBBaseViewController.h"
 #import "MBProgressHUD+Add.h"
 
-@interface IB_BaseViewController ()<UIGestureRecognizerDelegate>
+@interface IBBaseViewController ()<UIGestureRecognizerDelegate>
 {
 }
 
 @property (strong,nonatomic)     MBProgressHUD *      progressView;
 @end
 
-@implementation IB_BaseViewController
+@implementation IBBaseViewController
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter]removeObserver:self];

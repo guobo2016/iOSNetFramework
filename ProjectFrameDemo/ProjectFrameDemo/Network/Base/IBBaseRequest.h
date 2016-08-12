@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IB_Error.h"
-#import "IB_BaseResponseModel.h"
+#import "IBError.h"
+#import "IBBaseResponseModel.h"
 
 #define Request_PAGE_NUMBER @"pageNumber"
 #define Request_PAGE_SIZE @"pageSize"
@@ -37,7 +37,7 @@ typedef NS_ENUM(NSInteger,kHttpCacheType) {
      */
     kHttpCacheTypeLoadServerCache = 2
 };
-@interface IB_BaseRequest : NSObject
+@interface IBBaseRequest : NSObject
 /**
  *  初始化网络请求
  *
@@ -115,7 +115,7 @@ typedef NS_ENUM(NSInteger,kHttpCacheType) {
  *  @param resultDict 处理过data节点中数据的model
  *
  */
-- (void)processResult:(IB_BaseResponseModel*)baseModel;
+- (void)processResult:(IBBaseResponseModel*)baseModel;
 /**
  *  设置整型值
  *
@@ -158,7 +158,7 @@ typedef NS_ENUM(NSInteger,kHttpCacheType) {
  *  @param requestFailBlock    失败Block
  *  @param finalBlock          成功或者失败都执行的Block
  */
-- (void)sendRequestSuccessBlock:(void(^)(IB_BaseResponseModel* baseModel))requestSuccessBlock requestFailBlock:(void(^)(IB_Error* error))requestFailBlock finalBlock:(void(^)())finalBlock;
+- (void)sendRequestSuccessBlock:(void(^)(IBBaseResponseModel* baseModel))requestSuccessBlock requestFailBlock:(void(^)(IBError* error))requestFailBlock finalBlock:(void(^)())finalBlock;
 /**
  *  关闭网络请求
  *

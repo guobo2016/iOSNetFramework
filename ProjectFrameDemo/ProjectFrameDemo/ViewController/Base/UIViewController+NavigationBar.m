@@ -17,43 +17,18 @@
  */
 - (void)setNavTitle:(NSString *)title
 {
-    //注意必须先定义 leftBarButtonItem和rightBarButtonItem的位置
-    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kMainBoundsWidth, 44)];
-    titleView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-    titleView.autoresizesSubviews = YES;
-    titleView.backgroundColor = [UIColor clearColor];
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kMainBoundsWidth, 44)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 64)];
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.font = [UIFont systemFontOfSize:18];
-    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.tag = 1001;
+    titleLabel.numberOfLines = 2;
     titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-    titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    titleLabel.autoresizingMask = titleView.autoresizingMask;
-    //标题宽度
-    CGFloat width = [title sizeWithFont:[UIFont systemFontOfSize:18]].width;
-    CGFloat maxWidth = 120;
-    if(width <= kMainBoundsWidth-2*maxWidth){
-        titleLabel.frame = CGRectMake(0, 0, kMainBoundsWidth-maxWidth*2, 44);
-        titleView.frame = CGRectMake(maxWidth, 0, kMainBoundsWidth-maxWidth*2, 44);
-    }
-    else{
-        CGRect leftViewbounds = self.navigationItem.leftBarButtonItem.customView.bounds;
-        CGRect rightViewbounds = self.navigationItem.rightBarButtonItem.customView.bounds;
-        CGRect frame;
-        CGFloat maxWidth = leftViewbounds.size.width > rightViewbounds.size.width ? leftViewbounds.size.width : rightViewbounds.size.width;
-        maxWidth += 15;//leftview 左右都有间隙，左边是5像素，右边是8像素，加2个像素的阀值 5 ＋ 8 ＋ 2
-        frame = titleLabel.frame;
-        frame.size.width = kMainBoundsWidth - maxWidth * 2;
-        titleLabel.frame = frame;
-        
-        frame = titleView.frame;
-        frame.size.width = kMainBoundsWidth - maxWidth * 2;
-        titleView.frame = frame;
-    }
+    titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.text = title;
-    [titleView addSubview:titleLabel];
-    self.navigationItem.titleView = titleView;
+    self.navigationItem.titleView = titleLabel;
+    [titleLabel sizeToFit];
+    self.navigationItem.titleView.height = 44;
 }
 
 - (void)setNavRightButtonwithImg:(NSString *)normalImg selImg:(NSString *)selImg title:(NSString *)title action:(SEL)action
@@ -76,8 +51,25 @@
 }
 
 - (void)setNavBackArrow{
-    [self setNavBackArrowWithWidth:40];
+    [self setNavBackArrowText:@"返回"];
 }
+
+- (void)setNavBackArrowText:(NSString*)text{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.exclusiveTouch = YES;
+    [button setImage:[UIImage imageNamed:@"返回箭头"] forState:UIControlStateNormal];
+    button.frame = CGRectMake(0, 0, 100, 50);
+    [button setTitle:text forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:18];
+    //    [button setTitleEdgeInsets:UIEdgeInsetsMake(0,-22,0,0)];
+    button.titleLabel.textAlignment = NSTextAlignmentLeft;
+    //    [button setImageEdgeInsets:UIEdgeInsetsMake(10, 0, 10, 80)];
+    [button addTarget:self action:@selector(navBackButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [button sizeToFit];
+    UIBarButtonItem* backItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.leftBarButtonItem = backItem;
+}
+
 - (void)setNavBackArrowWithWidth:(CGFloat)width
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];

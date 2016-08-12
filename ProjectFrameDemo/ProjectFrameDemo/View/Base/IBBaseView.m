@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 Bob. All rights reserved.
 //
 
-#import "IB_BaseView.h"
+#import "IBBaseView.h"
 
-@implementation IB_BaseView
+@implementation IBBaseView
 +(id)loadFromXib
 {
     NSArray *nibArr = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:self options:nil];

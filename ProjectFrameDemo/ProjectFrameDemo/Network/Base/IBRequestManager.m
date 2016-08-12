@@ -8,9 +8,9 @@
 //  Copyright © 2016年 XX_Company. All rights reserved.
 //
 
-#import "IB_RequestManager.h"
+#import "IBRequestManager.h"
 
-@interface IB_RequestManager()
+@interface IBRequestManager()
 {
     typeof (void (^)(NSURLSessionDataTask *task, id responseObject)) _successBlock;
     typeof (void (^)(NSURLSessionDataTask *task, NSError *error)) _failBlock;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation IB_RequestManager
+@implementation IBRequestManager
 
 + (void)sendRequest:(NSString*)requestUrl method:(kHttpMethod)method params:(NSDictionary*)paramsDict successBlock:(void (^)(NSURLSessionDataTask *task, id responseObject))successBlock failBlock:(void (^)(NSURLSessionDataTask *task, NSError *error))failBlock
 {
@@ -27,7 +27,7 @@
     switch (method) {
         case kHttpMethodPost:
         {
-            currentTask = [[IB_AppDotNetAPIClient sharedClient]POST:requestUrl parameters:paramsDict success:^(NSURLSessionDataTask *task, id responseObject) {
+            currentTask = [[IBAppDotNetAPIClient sharedClient]POST:requestUrl parameters:paramsDict success:^(NSURLSessionDataTask *task, id responseObject) {
                 successBlock(task,responseObject);
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
                 failBlock(task,error);
@@ -36,7 +36,7 @@
             break;
         case kHttpMethodGet:
         {
-            currentTask = [[IB_AppDotNetAPIClient sharedClient]GET:requestUrl parameters:paramsDict success:^(NSURLSessionDataTask *task, id responseObject) {
+            currentTask = [[IBAppDotNetAPIClient sharedClient]GET:requestUrl parameters:paramsDict success:^(NSURLSessionDataTask *task, id responseObject) {
                 successBlock(task,responseObject);
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
                 failBlock(task,error);

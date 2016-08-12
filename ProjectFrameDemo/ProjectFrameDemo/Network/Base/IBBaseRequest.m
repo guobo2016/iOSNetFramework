@@ -8,24 +8,24 @@
 //  Copyright © 2016年 XX_Company. All rights reserved.
 //
 
-#import "IB_BaseRequest.h"
-#import "IB_AppDotNetAPIClient.h"
+#import "IBBaseRequest.h"
+#import "IBAppDotNetAPIClient.h"
 #import "AFHTTPRequestOperation.h"
 #import <CommonCrypto/CommonDigest.h>
-#import "IB_Error.h"
-#import "NSString+IB_Encrypt.h"
-#import "IB_CacheManager.h"
-#import "IB_RequestManager.h"
+#import "IBError.h"
+#import "NSString+IBEncrypt.h"
+#import "IBCacheManager.h"
+#import "IBRequestManager.h"
 #import <objc/objc.h>
 #import <objc/runtime.h>
 
 #define IB_BASEREQUEST_METHODNAME_KEY @"IB_BASEREQUEST_METHODNAME_KEY"
 
 
-@interface IB_BaseRequest()
+@interface IBBaseRequest()
 {
     void(^_requestSuccFinishBlock)(id result);
-    void(^_requestFailFinishBlock)(IB_Error* error);
+    void(^_requestFailFinishBlock)(IBError* error);
     void(^_finalBlock)();
     NSDictionary*   _responseDict;
     NSDictionary*   _cacheResponseDict;
@@ -39,7 +39,7 @@
 @property (assign,nonatomic)     NSInteger pageSize;
 
 @end
-@implementation IB_BaseRequest
+@implementation IBBaseRequest
 
 - (void)dealloc
 {
@@ -84,7 +84,7 @@
 
 #pragma mark public method
 
-- (void)sendRequestSuccessBlock:(void(^)(IB_BaseResponseModel* baseModel))requestSuccessBlock requestFailBlock:(void(^)(IB_Error* error))requestFailBlock finalBlock:(void(^)())finalBlock
+- (void)sendRequestSuccessBlock:(void(^)(IBBaseResponseModel* baseModel))requestSuccessBlock requestFailBlock:(void(^)(IBError* error))requestFailBlock finalBlock:(void(^)())finalBlock
 {
     [self popNullExceptionIfNeed];
     _requestSuccFinishBlock = requestSuccessBlock;
@@ -97,7 +97,7 @@
     }
     if (self.requestCacheType == kHttpCacheTypeLoadLocalCache) {
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            NSDictionary* cacheDict = [IB_CacheManager readCacheDiskByUrl:self.requestUrl params:_parametersDic];
+            NSDictionary* cacheDict = [IBCacheManager readCacheDiskByUrl:self.requestUrl params:_parametersDic];
             if(cacheDict){
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self handleResponse:cacheDict isReadCache:YES];
@@ -113,7 +113,7 @@
 {
     NSString* url = objc_getAssociatedObject([self class], IB_BASEREQUEST_METHODNAME_KEY);
 
-    for (NSURLSessionDataTask* task in [IB_AppDotNetAPIClient sharedClient].tasks) {
+    for (NSURLSessionDataTask* task in [IBAppDotNetAPIClient sharedClient].tasks) {
         NSString* origionUrl = task.currentRequest.URL.absoluteString;
         if ([origionUrl rangeOfString:url].location!=NSNotFound) {
             [task cancel];
@@ -121,7 +121,7 @@
     }
 }
 
-- (void)processResult:(IB_BaseResponseModel *)baseModel
+- (void)processResult:(IBBaseResponseModel *)baseModel
 {
     
 }
@@ -161,13 +161,13 @@
  */
 - (void)sendRequest
 {
-    [IB_RequestManager sendRequest:self.requestUrl method:self.requestMethod params:self.parametersDic successBlock:^(NSURLSessionDataTask *task, id responseObject) {
+    [IBRequestManager sendRequest:self.requestUrl method:self.requestMethod params:self.parametersDic successBlock:^(NSURLSessionDataTask *task, id responseObject) {
         [self handleResponse:responseObject isReadCache:NO];
         dispatch_barrier_sync(dispatch_get_global_queue(0, 0), ^{
-            [IB_CacheManager writeCacheDisk:responseObject url:self.requestUrl params:_parametersDic];
+            [IBCacheManager writeCacheDisk:responseObject url:self.requestUrl params:_parametersDic];
         });
     } failBlock:^(NSURLSessionDataTask *task, NSError *error) {
-        IB_Error* bError = [[IB_Error alloc]initWithDomain:error.domain code:error.code userInfo:error.userInfo];
+        IBError* bError = [[IBError alloc]initWithDomain:error.domain code:error.code userInfo:error.userInfo];
         if (_requestFailFinishBlock) {
             _requestFailFinishBlock(bError);
         }
@@ -201,16 +201,16 @@
                 return;
             }
         }
-        IB_BaseResponseModel* baseModel = [IB_BaseResponseModel objectFromDictionary:responseObject];
+        IBBaseResponseModel* baseModel = [IBBaseResponseModel objectFromDictionary:responseObject];
         if (baseModel.code == kErrorCode_Success) {
             [self processResult:baseModel];
         }
         baseModel.isCache = isReadCache;
-        IB_Error* bError = nil;
+        IBError* bError = nil;
         if (_requestSuccFinishBlock && baseModel.code == kErrorCode_Success) {
             _requestSuccFinishBlock(baseModel);
         }else if(_requestFailFinishBlock && baseModel.code != kErrorCode_Success){
-            bError = [[IB_Error alloc]initWithDomain:self.requestUrl code:baseModel.code userInfo:@{@"description":baseModel.message}];
+            bError = [[IBError alloc]initWithDomain:self.requestUrl code:baseModel.code userInfo:@{@"description":baseModel.message}];
             _requestFailFinishBlock(bError);
         }
         if (_finalBlock) {
@@ -222,7 +222,7 @@
             _finalBlock = nil;
         }
     }else{
-        IB_Error* error = [[IB_Error alloc]initWithDomain:self.requestUrl code:kErrorCode_Data_Error userInfo:@{@"description":@"数据解析失败"}];
+        IBError* error = [[IBError alloc]initWithDomain:self.requestUrl code:kErrorCode_Data_Error userInfo:@{@"description":@"数据解析失败"}];
         if (_requestFailFinishBlock) {
             _requestFailFinishBlock(error);
         }

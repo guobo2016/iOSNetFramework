@@ -7,14 +7,14 @@
 //  Copyright © 2016年 XX_Company. All rights reserved.
 //
 
-#import "NSString+IB_Encrypt.h"
+#import "NSString+IBEncrypt.h"
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonCrypto.h>
 #import "GTMBase64.h"
 
 static NSString * const DES_KEY = @"des";
 
-@implementation NSString (IB_Encrypt)
+@implementation NSString (IBEncrypt)
 
 - (NSString*)md5{
     const char* string = [self UTF8String];

@@ -8,9 +8,9 @@
 //  Copyright © 2015年 XX_Company. All rights reserved.
 //
 
-#import "IB_Error.h"
+#import "IBError.h"
 
-@implementation IB_Error
+@implementation IBError
 
 -(instancetype)initWithDomain:(NSString *)domain code:(NSInteger)code userInfo:(NSDictionary *)dict
 {

@@ -6,14 +6,14 @@
 //  Copyright (c) 2014年 open. All rights reserved.
 //
 
-#import "IB_BaseNavigationController.h"
-@interface IB_BaseNavigationController ()<UINavigationControllerDelegate,UIGestureRecognizerDelegate>{
+#import "IBBaseNavigationController.h"
+@interface IBBaseNavigationController ()<UINavigationControllerDelegate,UIGestureRecognizerDelegate>{
     BOOL _isEnablePop; //打开pop响应手势
 }
 
 @end
 
-@implementation IB_BaseNavigationController
+@implementation IBBaseNavigationController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
 
-    __weak IB_BaseNavigationController *weakSelf = self;
+    __weak IBBaseNavigationController *weakSelf = self;
     if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.interactivePopGestureRecognizer.delegate = weakSelf;
         self.delegate = weakSelf;
@@ -36,7 +36,7 @@
 
 -(id)initWithRootViewController:(UIViewController *)rootViewController
 {
-    IB_BaseNavigationController* nvc = [super initWithRootViewController:rootViewController];
+    IBBaseNavigationController* nvc = [super initWithRootViewController:rootViewController];
     nvc.delegate = self;
     [nvc.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_nav"] forBarMetrics:UIBarMetricsDefault];
 

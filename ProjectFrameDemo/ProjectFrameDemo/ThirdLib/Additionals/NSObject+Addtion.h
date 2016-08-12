@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IB_BaseViewController.h"
+#import "IBBaseViewController.h"
 
 @interface NSObject (Addtion)
 
-- (IB_BaseViewController *)getCurrentVC:(UIView *)sourceView;
+- (IBBaseViewController *)getCurrentVC:(UIView *)sourceView;
 
 @end

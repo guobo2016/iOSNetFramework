@@ -31,6 +31,6 @@ typedef NS_ENUM(NSInteger,kErrorCode) {
     kErrorCode_TimeOut_Error = 604
 };
 
-@interface IB_Error : NSError
+@interface IBError : NSError
 
 @end

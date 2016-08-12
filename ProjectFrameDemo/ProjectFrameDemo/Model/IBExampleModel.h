@@ -6,9 +6,9 @@
 //  Copyright © 2015年 XX_Company. All rights reserved.
 //
 
-#import "IB_BaseResponseModel.h"
+#import "IBBaseResponseModel.h"
 
-@interface IB_ExampleModel : IB_BaseDataModel
+@interface IBExampleModel : IBBaseDataModel
 
 @property (strong,nonatomic) NSString* name;
 @property (assign,nonatomic) NSInteger userCount;

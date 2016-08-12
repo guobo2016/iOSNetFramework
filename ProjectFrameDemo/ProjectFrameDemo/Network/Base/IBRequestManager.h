@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IB_BaseRequest.h"
-#import "IB_AppDotNetAPIClient.h"
-#import "IB_CacheManager.h"
+#import "IBBaseRequest.h"
+#import "IBAppDotNetAPIClient.h"
+#import "IBCacheManager.h"
 
 /**
  *  请求管理类
  */
-@interface IB_RequestManager : NSObject
+@interface IBRequestManager : NSObject
 /**
  *  发送请求
  *

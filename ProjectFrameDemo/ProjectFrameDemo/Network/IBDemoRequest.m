@@ -9,10 +9,10 @@
 //  Copyright © 2016年 XX_Company. All rights reserved.
 //
 
-#import "IB_DemoRequest.h"
-#import "IB_ExampleModel.h"
+#import "IBDemoRequest.h"
+#import "IBExampleModel.h"
 
-@implementation IB_DemoRequest
+@implementation IBDemoRequest
 
 - (instancetype)init
 {
@@ -25,11 +25,11 @@
     return self;
 }
 
-- (void)processResult:(IB_BaseResponseModel*)baseModel
+- (void)processResult:(IBBaseResponseModel*)baseModel
 {
     NSMutableArray* resultArray = [NSMutableArray array];
     for (NSDictionary* dict in baseModel.data) {
-        IB_ExampleModel* model = [IB_ExampleModel objectFromDictionary:dict];
+        IBExampleModel* model = [IBExampleModel objectFromDictionary:dict];
         [resultArray addObject:model];
     }
     baseModel.data = resultArray;

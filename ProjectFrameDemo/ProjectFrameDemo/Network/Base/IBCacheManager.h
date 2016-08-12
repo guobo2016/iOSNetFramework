@@ -10,7 +10,7 @@
 /**
  *  网络请求缓存处理类
  */
-@interface IB_CacheManager : NSObject
+@interface IBCacheManager : NSObject
 
 /**
  *  读取网络缓存

@@ -6,9 +6,9 @@
 //  Copyright © 2015年 XX_Company. All rights reserved.
 //
 
-#import "IB_BaseResponseModel.h"
+#import "IBBaseResponseModel.h"
 
-@implementation IB_BaseResponseModel
+@implementation IBBaseResponseModel
 
 -(NSDictionary *)attrMapDict
 {

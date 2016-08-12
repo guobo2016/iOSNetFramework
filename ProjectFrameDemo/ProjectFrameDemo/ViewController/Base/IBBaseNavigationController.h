@@ -10,6 +10,6 @@
 /**
  *  UINavigationbarController基类
  */
-@interface IB_BaseNavigationController : UINavigationController
+@interface IBBaseNavigationController : UINavigationController
 
 @end

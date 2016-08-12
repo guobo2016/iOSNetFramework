@@ -6,14 +6,14 @@
 //  Copyright (c) 2014年 Bob. All rights reserved.
 //
 
-#import "IB_BaseCell.h"
+#import "IBBaseCell.h"
 
-@interface IB_BaseCell()
+@interface IBBaseCell()
 
 
 @end
 
-@implementation IB_BaseCell
+@implementation IBBaseCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

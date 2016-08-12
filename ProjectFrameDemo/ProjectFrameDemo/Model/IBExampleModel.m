@@ -9,8 +9,8 @@
 //  Copyright © 2015年 XX_Company. All rights reserved.
 //
 
-#import "IB_ExampleModel.h"
+#import "IBExampleModel.h"
 
-@implementation IB_ExampleModel
+@implementation IBExampleModel
 
 @end

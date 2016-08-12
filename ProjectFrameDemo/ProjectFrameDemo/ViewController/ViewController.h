@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : IB_BaseViewController
+@interface ViewController : IBBaseViewController
 
 
 @end

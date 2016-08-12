@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-#import "IB_BaseNavigationController.h"
+#import "IBBaseNavigationController.h"
 
 @interface AppDelegate ()
 
@@ -20,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     ViewController* vc = [ViewController new];
-    IB_BaseNavigationController* nav = [[IB_BaseNavigationController alloc]initWithRootViewController:vc];
+    IBBaseNavigationController* nav = [[IBBaseNavigationController alloc]initWithRootViewController:vc];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     return YES;

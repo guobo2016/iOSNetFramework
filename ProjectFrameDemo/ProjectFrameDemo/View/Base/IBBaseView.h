@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IB_BaseView : UIView
+@interface IBBaseView : UIView
 
 + (id)loadFromXib;
 

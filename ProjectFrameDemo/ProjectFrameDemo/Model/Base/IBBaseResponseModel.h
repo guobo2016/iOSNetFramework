@@ -11,7 +11,7 @@
 /**
  * 网络请求返回结果的Model
  */
-@interface IB_BaseResponseModel : Jastor
+@interface IBBaseResponseModel : Jastor
 /**
  *  消息描述
  */

@@ -12,6 +12,6 @@
  *  网络请求返回的结果体Model
  *  Data节点中的数据
  */
-@interface IB_BaseDataModel : Jastor
+@interface IBBaseDataModel : Jastor
 
 @end

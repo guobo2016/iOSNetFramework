@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (IB_Encrypt)
+@interface NSString (IBEncrypt)
 /**
  *  md5加密
  *

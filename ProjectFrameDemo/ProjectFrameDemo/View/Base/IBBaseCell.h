@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IB_BaseCell : UITableViewCell
+@interface IBBaseCell : UITableViewCell
 
 @property (assign,nonatomic) NSInteger selectSection;
 @property (assign,nonatomic) NSInteger selectIndex;

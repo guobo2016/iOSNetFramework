@@ -7,9 +7,9 @@
 //
 
 #import "ViewController.h"
-#import "IB_ExampleModel.h"
-#import "IB_DemoRequest.h"
-#import "NSString+IB_Encrypt.h"
+#import "IBExampleModel.h"
+#import "IBDemoRequest.h"
+#import "NSString+IBEncrypt.h"
 
 @interface ViewController ()
 {
@@ -31,12 +31,12 @@
     
     [self setNavTitle:@"测试"];
     
-    [[[IB_DemoRequest alloc]init]sendRequestSuccessBlock:^(IB_BaseResponseModel *baseModel) {
-        IB_BaseDataModel* dataModel = baseModel.data;
+    [[[IBDemoRequest alloc]init]sendRequestSuccessBlock:^(IBBaseResponseModel *baseModel) {
+        IBBaseDataModel* dataModel = baseModel.data;
         NSLog(@"成功ResponseModel####%@",baseModel);
         NSLog(@"成功ResponseDataModel####%@",dataModel);
 
-    } requestFailBlock:^(IB_Error *error) {
+    } requestFailBlock:^(IBError *error) {
         DLog(@"%@",error);
     } finalBlock:^ {
         
